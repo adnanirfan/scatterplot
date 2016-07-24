@@ -1,0 +1,33 @@
+<DOCTYPE html>
+    <html>
+
+    <head>
+        <title>Scatterplot</title>
+
+        <link href="./lib/bootstrap/dist/css/bootstrap.css" />
+
+        <script src="./lib/angular/angular.js"></script>
+        <script src="./lib/jquery/dist/jquery.js" /></script>
+        <script src="./lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="./lib/PapaParse-4.1.2/papaparse.js"></script>
+        <script src="./lib/d3.v3.min.js"></script>
+        <script src="./js/app.js"></script>
+        <script>
+            
+        </script>
+    </head>
+
+    <body ng-app="Scatterplot" ng-controller="HomeController">
+
+        <!--<input type="file" id="files" multiple>  
+        <br><br>
+        <button id="submit-parse">Parse</button>-->
+        
+
+        <h1>{{name}}</h1>
+        <input type="file" id="files" ng-file-select>
+        <button id="pparse" ng-click="pparse()">{{btn}}</button>
+
+    </body>
+
+    </html>

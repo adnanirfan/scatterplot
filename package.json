@@ -1,0 +1,23 @@
+{
+  "name": "scatterplotv",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adnanirfan/scatterplot.git"
+  },
+  "author": "adnanirfan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adnanirfan/scatterplot/issues"
+  },
+  "homepage": "https://github.com/adnanirfan/scatterplot",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "bootstrap": "^3.3.6",
+    "jquery": "^3.1.0"
+  }
+}
