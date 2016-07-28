@@ -32,7 +32,8 @@ angular.module('Scatterplot', [])
                 //.append("svg:g")
                 //.attr("transform", "translate(" + m[3] + "," + m[0] + ")");
 
-            var g = svg.append("g").attr('transform', 'translate(50, 50)')
+            var g = svg.append("g").attr('transform', 'translate(50, 50)');
+            var g2 = svg.append("g").attr('transform', 'translate(50, 60)')
 
             var gx = g.append("g").attr('transform', 'translate(0, '+(h-100)+')')
                 .attr('class', 'x')
@@ -49,14 +50,15 @@ angular.module('Scatterplot', [])
             g.call(yAxis);
             gx.call(xAxis);
 
-            var groupCircle = d3.select("div .main")
-                .select("g")
+            var groupCircle = g2.selectAll("g")
                 .data($scope.files)
                 .enter()
-                .append('g');
-
-            groupCircle.selectAll('circle')//.append('circle')
-                .append('circle')
+                .append('g')
+                .attr('transform', function(d){
+                    return 'translate('+ d.x+', '+ d.y+')';
+                });
+                debugger;
+            groupCircle.append('circle')
                 .attr('cx', function (d, i) {
                     console.log(d, i)
                     return xScale(d.x);
@@ -69,9 +71,13 @@ angular.module('Scatterplot', [])
                 .text('54')
                 .style('fill', 'red')
 
-            groupCircle.selectAll('text')//.append('circle')
-                .text('dfsaasd')
+            groupCircle//.append('circle')
                 .append('text')
+                .text('dfsaasd')
+                .attr("x", function(d) { return xScale(d.x)} )
+                .attr("y", function(d) { return yScale(d.y)+20} )
+                .style("text-anchor", "middle");
+
 
             //var circle = svg.selectAll('circle')//.append('circle')
             //    .data($scope.files)
@@ -92,8 +98,8 @@ angular.module('Scatterplot', [])
             //    .text('54')
             //    //.attr({'cx':80, 'cy': 60, 'r':5})
             //    .style('fill', 'red')
-
-
+            //
+            //
             //var circle = svg.append('circle')
             //    .attr({'cx':80, 'cy': 60, 'r':5})
             //    .style('fill', 'red')
