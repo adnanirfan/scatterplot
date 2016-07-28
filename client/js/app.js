@@ -49,21 +49,49 @@ angular.module('Scatterplot', [])
             g.call(yAxis);
             gx.call(xAxis);
 
-            var circle = svg.append('circle')
-                .data({x: $scope.xVal, y:$scope.yVal})
+            var groupCircle = d3.select("div .main")
+                .select("g")
+                .data($scope.files)
                 .enter()
-                .append('circle')
+                .append('g');
 
-            circle
+            groupCircle.selectAll('circle')//.append('circle')
+                .append('circle')
                 .attr('cx', function (d, i) {
                     console.log(d, i)
+                    return xScale(d.x);
                 })
                 .attr('cy', function (d, i) {
                     console.log(d, i)
+                    return yScale(d.y);
                 })
                 .attr('r', 5)
-                //.attr({'cx':80, 'cy': 60, 'r':5})
+                .text('54')
                 .style('fill', 'red')
+
+            groupCircle.selectAll('text')//.append('circle')
+                .text('dfsaasd')
+                .append('text')
+
+            //var circle = svg.selectAll('circle')//.append('circle')
+            //    .data($scope.files)
+            //    .enter()
+            //    .append('circle')
+            //
+            //
+            //circle
+            //    .attr('cx', function (d, i) {
+            //        console.log(d, i)
+            //        return xScale(d.x);
+            //    })
+            //    .attr('cy', function (d, i) {
+            //        console.log(d, i)
+            //        return yScale(d.y);
+            //    })
+            //    .attr('r', 5)
+            //    .text('54')
+            //    //.attr({'cx':80, 'cy': 60, 'r':5})
+            //    .style('fill', 'red')
 
 
             //var circle = svg.append('circle')
@@ -98,7 +126,7 @@ angular.module('Scatterplot', [])
             }).map(function(item){
                 return item
             })
-
+            $scope.files = $scope.files.filter(function(item){return item !='' && item != null}).map(function(item){return {x:item[0],y:item[1]}})
             console.log('$scope.x = ', $scope.x)
             console.log('$scope.y = ', $scope.y)
             console.log('$scope.xVal = ', $scope.xVal)
