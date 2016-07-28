@@ -26,7 +26,7 @@ app.get('/player', function (req, res) {
 /**
  * Get port from environment and store in Express.
  */
-var port = '3000';
+var port = '4000';
 app.set('port', port);
 app.listen(port, function (err) {
     if (err)    console.log("ERROR When listening on Port: ", port, ' ERROR: ', err);
